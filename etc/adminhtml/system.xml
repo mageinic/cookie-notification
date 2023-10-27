@@ -1,0 +1,93 @@
+<!--
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_CookieNotification
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageinic" sortOrder="400" translate="label">
+            <label>MageINIC</label>
+        </tab>
+        <section id="mageinic_cookienotification" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="5"
+                 translate="label">
+            <label>Cookie Notification</label>
+            <tab>mageinic</tab>
+            <resource>MageINIC_CookieNotification::mageinic_cookienotification</resource>
+            <group id="general" translate="label" type="text" sortOrder="1000" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enabledisable" translate="label" type="select" sortOrder="1010" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Cookie Notification</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="box_position" translate="label" type="select" sortOrder="1020" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Position</label>
+                    <source_model>MageINIC\CookieNotification\Model\System\Config\Source\Box\Position</source_model>
+                    <depends>
+                        <field id="enabledisable">1</field>
+                    </depends>
+                </field>
+                <field id="notice_title" translate="label" type="text" sortOrder="1030" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Notice Title</label>
+                    <depends>
+                        <field id="enabledisable">1</field>
+                    </depends>
+                </field>
+                <field id="notice_message" translate="label" type="textarea" sortOrder="1040" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Notice Message</label>
+                    <depends>
+                        <field id="enabledisable">1</field>
+                    </depends>
+                </field>
+                <field id="cookie_policy_url" translate="label" type="select" sortOrder="1050" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Cookie Policy Url</label>
+                    <source_model>MageINIC\CookieNotification\Model\System\Config\Source\Page</source_model>
+                    <depends>
+                        <field id="enabledisable">1</field>
+                    </depends>
+                </field>
+                <field id="behaviour" translate="label" type="select" sortOrder="1060" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>When User closes The Notice</label>
+                    <source_model>MageINIC\CookieNotification\Model\System\Config\Source\Behaviour</source_model>
+                    <depends>
+                        <field id="enabledisable">1</field>
+                    </depends>
+                </field>
+                <field id="expire_cookie_day" translate="label" type="text" sortOrder="1070" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Expire Cookie Day</label>
+                    <depends>
+                        <field id="enabledisable">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,6 +1,6 @@
 {
     "name": "mageinic/module-cookienotification",
-    "description": "Magento 2 extension to inform users about the use and the management of your website cookies",
+    "description": "Cookie Notification by MageINIC.Cookie Notification extension is a vital tool for websites utilizing cookies to collect user data. It ensures compliance with privacy regulations while transparently informing users about cookie usage. Customize consent messages, button text, and popup appearance, all while offering flexible event options and auto-hide functionality for experience.",
     "require": {
         "php": "^8.0",
         "mageinic/core": "1.0.*"
@@ -8,7 +8,8 @@
     "type": "magento2-module",
     "version": "1.0.0",
     "license": [
-        "Commercial"
+        "OSL-3.0",
+        "AFL-3.0"
     ],
     "authors": [
         {

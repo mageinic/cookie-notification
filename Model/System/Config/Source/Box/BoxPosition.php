@@ -23,15 +23,21 @@
  * @author MageINIC <support@mageinic.com>
  */
 
-namespace MageINIC\CookieNotification\Model\System\Config\Source;
+namespace MageINIC\CookieNotification\Model\System\Config\Source\Box;
 
 use Magento\Framework\Option\ArrayInterface;
 
 /**
- * Cookie Notification Class Behaviour
+ * Cookie Notification Class BoxPosition
  */
-class Behaviour implements ArrayInterface
+class BoxPosition implements ArrayInterface
 {
+    public const TOPLEFT = 'v-top-left';
+    public const TOPRIGHT = 'v-top-right';
+    public const BOTTOMLEFT = 'v-bottom-left';
+    public const BOTTOMRIGHT = 'v-bottom-right';
+    public const CENTER = 'v-center';
+
     /**
      * To Option Array
      *
@@ -40,9 +46,11 @@ class Behaviour implements ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 365, 'label' => 'Never show again'],
-            ['value' => 1, 'label' => 'Hide for the rest of the day'],
-            ['value' => 0, 'label' => 'Hide for the rest of the session']
+            ['value' => self::TOPLEFT, 'label' => __('Top left')],
+            ['value' => self::TOPRIGHT, 'label' => __('Top right')],
+            ['value' => self::BOTTOMLEFT, 'label' => __('Bottom left')],
+            ['value' => self::BOTTOMRIGHT, 'label' => __('Bottom right')],
+            ['value' => self::CENTER, 'label' => __('Center')]
         ];
     }
 }

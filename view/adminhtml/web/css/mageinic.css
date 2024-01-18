@@ -1,4 +1,3 @@
-<?php
 /**
  * MageINIC
  * Copyright (C) 2023 MageINIC <support@mageinic.com>
@@ -23,26 +22,12 @@
  * @author MageINIC <support@mageinic.com>
  */
 
-namespace MageINIC\CookieNotification\Model\System\Config\Source;
-
-use Magento\Framework\Option\ArrayInterface;
-
-/**
- * Cookie Notification Class Behaviour
- */
-class Behaviour implements ArrayInterface
-{
-    /**
-     * To Option Array
-     *
-     * @return array
-     */
-    public function toOptionArray()
-    {
-        return [
-            ['value' => 365, 'label' => 'Never show again'],
-            ['value' => 1, 'label' => 'Hide for the rest of the day'],
-            ['value' => 0, 'label' => 'Hide for the rest of the session']
-        ];
-    }
+.mageinic .title:before {
+    background-image: url(https://hyva.mageinic.com/media/logo.png);
+    background-size: 150px 19px;
+    display: inline-block;
+    width: 150px;
+    height: 19px;
+    content: "";
+    background-repeat: no-repeat;
 }

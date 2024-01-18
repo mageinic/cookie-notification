@@ -22,28 +22,15 @@
  * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
  * @author MageINIC <support@mageinic.com>
  */
-namespace MageINIC\CookieNotification\Model\System\Config\Source\Box;
 
-use Magento\Framework\Option\ArrayInterface;
+use MageINIC\CookieNotification\Block\CookieNotification;
+use Magento\Framework\Escaper;
 
 /**
- * MageINIC_CookieNotification Class Position
+ * @var $block CookieNotification
+ * @var $escaper Escaper
  */
-class Position implements ArrayInterface
-{
-    public const TOP    = 0;
-    public const BOTTOM = 1;
 
-    /**
-     * To OptionArray
-     *
-     * @return array
-     */
-    public function toOptionArray(): array
-    {
-        return [
-            ['value' => 0, 'label' => __('Top')],
-            ['value' => 1, 'label' => __('Bottom')]
-        ];
-    }
-}
+?>
+<link href="https://fonts.googleapis.com/css?family=<?= $escaper->escapeHtmlAttr($block->headerTextFontFamily()) ?>"
+      rel="stylesheet">

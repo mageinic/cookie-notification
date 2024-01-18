@@ -28,10 +28,13 @@ namespace MageINIC\CookieNotification\Model\System\Config\Source;
 use Magento\Framework\Option\ArrayInterface;
 
 /**
- * Cookie Notification Class Behaviour
+ * Cookie Notification Class Target
  */
-class Behaviour implements ArrayInterface
+class Target implements ArrayInterface
 {
+    public const SAME_WINDOW = '_self';
+    public const NEW_WINDOW = '_blank';
+
     /**
      * To Option Array
      *
@@ -40,9 +43,8 @@ class Behaviour implements ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 365, 'label' => 'Never show again'],
-            ['value' => 1, 'label' => 'Hide for the rest of the day'],
-            ['value' => 0, 'label' => 'Hide for the rest of the session']
+            ['value' => self::SAME_WINDOW, 'label' => __('Same Window')],
+            ['value' => self::NEW_WINDOW, 'label' => __('New Window')]
         ];
     }
 }

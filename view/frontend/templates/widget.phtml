@@ -1,0 +1,218 @@
+<?php
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_CookieNotification
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+
+use MageINIC\CookieNotification\Block\CookieNotification;
+use Magento\Framework\Escaper;
+
+/**
+ * @var $block CookieNotification
+ * @var $escaper Escaper
+ */
+
+?>
+<?php if ($block->enableDisable()): ?>
+    <?php
+    if ($block->getType() == 'v-bar') {
+        $width = '93%';
+    } else {
+        $width = 'auto';
+    }
+    $fontFamily = $block->headerTextFontFamily();
+    $fontFamily = str_replace('+', ' ', $fontFamily);
+    $fontFamily = "'" . $fontFamily . "'";
+    ?>
+<div class="cookie-div">
+    <div id="m-cookienotification"
+         class="<?= $escaper->escapeHtmlAttr($block->getType()); ?>
+    <?= $escaper->escapeHtmlAttr(($block->getType() == 'v-bar')) ? $escaper->escapeHtmlAttr($block->getBarPosition()):
+             $escaper->escapeHtmlAttr($block->getBoxPosition()); ?>"
+         style="box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.47);display:none;
+             text-align:<?= $escaper->escapeHtmlAttr($block->modelTextAlign()); ?>;
+             background-color:<?= $escaper->escapeHtmlAttr($block->headerBackgroundColor()); ?>;
+             color:<?= $escaper->escapeHtmlAttr($block->headerFontColor()); ?>;
+         <?php if ($block->modelBorder()):?> border-color:<?= $escaper->escapeHtmlAttr($block->modelBorderColor());
+            if ($block->headerBottomBorder()):?>;
+                        border-bottom-color:<?= $escaper->escapeHtmlAttr($block->headerBottomBorderColor());
+                    endif;
+            if ($block->containerTopBorder()):?>;
+                        border-top-color:<?= $escaper->escapeHtmlAttr($block->containerTopBorderColor());
+                    endif;
+                else:
+                    ?>border:0px;<?php
+                endif; ?>;">
+        <div class="m-message title"
+             style="font-weight:bold;width:<?= $escaper->escapeHtmlAttr($width) ?>;
+                 font-size:<?= $escaper->escapeHtmlAttr($block->modelTitleFontSize()) ?>px;
+                 color:<?= $escaper->escapeHtmlAttr($block->modelTitleColor()); ?>;
+                 font-family:<?= $escaper->escapeHtmlAttr($block->headerTextFontFamily()); ?>">
+            <span class="titlecookie"
+                  style="border-bottom: 2px solid <?= $escaper->escapeHtmlAttr($block
+                      ->acceptButtonBackgroundColor()) ?>;">
+            <?php if ($escaper->escapeHtmlAttr($block->getShow() == 'default')):
+                echo 'Cookies and Privacy';
+            else:
+                echo $escaper->escapeHtmlAttr($block->modelTitle());
+            endif;
+            ?>
+                </span>
+        </div>
+        <div id="message-custom-css" class="m-message custom-css"
+             style="width:<?= $escaper->escapeHtmlAttr($width) ?>;
+                 font-size:<?= $escaper->escapeHtmlAttr($block->modelMessageSize()) ?>px;
+                 font-family:<?= $escaper->escapeHtmlAttr($fontFamily) ?>">
+            <?php if ($escaper->escapeHtmlAttr($block->getShow() == 'default')):
+                echo 'This website use cookies to ensure you get the best user experience on our website.';
+            else:
+                echo $escaper->escapeHtmlAttr($block->getCustomMessage());
+            endif;
+            ?>
+        </div>
+        <div id="action-custom-css" class="m-actions custom-css">
+            <a href="javascript:cookieNoticeAccept();" class="m-button m-accept"
+               style="background-color:<?= $escaper->escapeHtmlAttr($block->acceptButtonBackgroundColor()) ?>;
+                   color:<?= $escaper->escapeHtmlAttr($block->acceptButtonColor()) ?>">
+                <?php if ($block->getShow() == 'default'):
+                    echo "Accept";
+                else:
+                    echo $escaper->escapeHtmlAttr($block->getCustomAccept());
+                endif;
+                ?>
+            </a>
+            <a href="javascript:cookieClose();" class="m-button m-decline"
+               style="background-color:<?= $escaper->escapeHtmlAttr($block->closeButtonBackgroundColor()) ?>;
+                   color:<?= $escaper->escapeHtmlAttr($block->closeButtonColor()) ?>">
+                <?php if ($escaper->escapeHtmlAttr($block->getShow() == 'default')):
+                    echo "Decline";
+                else:
+                    echo $escaper->escapeHtmlAttr($block->getCustomDecline());
+                endif;
+                ?>
+            </a>
+            <a href="<?= $escaper->escapeUrl($block->getUrls().$escaper->escapeHtmlAttr($block->cmsPage())); ?>"
+               target="<?= $escaper->escapeHtmlAttr($block->newTab()) ?>"
+               class="m-button"
+               style="background-color:<?= $escaper->escapeHtmlAttr($block->policyBackgroundColor()) ?>;
+                   color:<?= $escaper->escapeHtmlAttr($block->privacyPolicyColor())?>">
+                <?php if ($block->getShow() == 'default'):
+                    echo "Read our Privacy Policy";
+                else:
+                    echo $escaper->escapeHtmlAttr($block->getCustomMoreInfo());
+                endif;
+                ?>
+            </a>
+        </div>
+    </div>
+</div>
+    <div id="v-badge" class="v-badge" onClick="showDiv()" style="display:none">Cookie Settings</div>
+    <script>
+        var behaviour = <?= $escaper->escapeHtmlAttr($block->getBehaviour()) ?>;
+        var onScroll ='<?= $escaper->escapeHtmlAttr($block->onscroll()) ?>';
+        var expire ='<?= $escaper->escapeHtmlAttr($block->getAutoExpire()) ?>';
+        if (expire === 0 || expire === '0') {
+            expire = 1;
+        } else {
+            expire = <?= $escaper->escapeHtmlAttr($block->getAutoExpire()) ?>;
+        }
+
+        if (onScroll === 1 || onScroll === '1') {
+            window.onscroll = function () {
+                if (!jQuery.cookie('cookienotification') || jQuery.cookie('cookienotification') === '0') {
+                    custom();
+                }
+            };
+        }
+
+        function custom() {
+            if (document.getElementById('m-cookienotification').style.display = 'block') {
+                if (behaviour) {
+                    var d = new Date();
+                    d.setTime(d.getTime() + (behaviour + expire * 24 * 60 * 60 * 1000));
+                    var expires = "expires=" + d.toUTCString();
+
+                }
+                if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+                    document.cookie = "cookienotification" + "=" + "true" + ";" + expires + ";path=/";
+                    document.getElementById('m-cookienotification').style.display = 'none';
+                }
+            }
+        }
+
+        function showDiv() {
+            document.getElementById('m-cookienotification').style.display = "block";
+            document.getElementById('v-badge').style.display = 'none';
+            <?php if ($block->getAutohide()): ?>
+            setTimeout(function () {
+                document.getElementById('m-cookienotification').style.display = 'none';
+                document.getElementById('v-badge').style.display = 'block';
+            }, <?= $block->getAutohide() * 1000; ?>);
+            <?php endif; ?>
+        }
+
+        function cookieClose() {
+            if (behaviour) {
+                var d = new Date();
+                d.setTime(d.getTime() + (behaviour + expire * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+            }
+            document.cookie = "cookienotification" + "=" + "0" + ";" + expires + ";path=/";
+            document.getElementById('v-badge').style.display = 'block';
+            document.getElementById('m-cookienotification').style.display = 'none';
+        }
+
+        function cookieNoticeAccept() {
+            if (behaviour) {
+                var d = new Date();
+                d.setTime(d.getTime() + (behaviour + expire * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+            }
+            document.cookie = "cookienotification" + "=" + "true" + ";" + expires + ";path=/";
+            document.getElementById('m-cookienotification').style.display = 'none';
+        }
+
+        require([
+            'jquery',
+            'mage/cookies'
+        ], function ($) {
+            if ($.cookie('cookienotification') === '0' || $.cookie('cookienotification') === 0){
+                document.getElementById('v-badge').style.display = 'block';
+            }
+            if (!$.cookie('cookienotification')){
+                document.getElementById('m-cookienotification').style.display = 'block';
+            }
+        });
+
+        <?php if ($block->getAutohide()): ?>
+        setTimeout(function () {
+            document.getElementById('m-cookienotification').style.display = 'none';
+            document.getElementById('v-badge').style.display = 'block';
+        }, <?= $block->getAutohide() * 1000; ?>);
+        <?php endif; ?>
+        <?php if ($block->getAutoAccept()): ?>
+        setTimeout(function () {
+            cookieNoticeAccept();
+        }, <?= $block->getAutoAccept() * 1000; ?>);
+        <?php endif; ?>
+    </script>
+<?php endif; ?>

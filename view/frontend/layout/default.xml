@@ -26,13 +26,21 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="MageINIC_CookieNotification::css/cookienotice.css" />
+        <css src="MageINIC_CookieNotification::css/cookienotification.css" />
     </head>
     <body>
+        <referenceContainer name="head.additional">
+            <block class="MageINIC\CookieNotification\Block\CookieNotification" name="mageinic_font"
+                   template="MageINIC_CookieNotification::font.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="after.body.start">
+            <block class="MageINIC\CookieNotification\Block\CookieNotification" name="mageinic_cookienotification_top"
+                   before="-" template="MageINIC_CookieNotification::widget.phtml"/>
+        </referenceContainer>
         <referenceContainer name="before.body.end">
             <block class="MageINIC\CookieNotification\Block\CookieNotification"
                    name="mageinic_cookienotification_bottom" after="-"
-                   template="MageINIC_CookieNotification::notification.phtml" />
+                   template="MageINIC_CookieNotification::widget.phtml" />
         </referenceContainer>
     </body>
 </page>

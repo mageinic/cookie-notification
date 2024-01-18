@@ -1,0 +1,51 @@
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_CookieNotification
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+
+ul.tabs.config-tabs a.v-cookienotice-section span {
+    background: url(../images/icon.png) no-repeat 187px 3px;
+}
+
+ul.tabs.config-tabs a.v-cookienotice-section.active span {
+    background: #fff url(../images/icon.png) no-repeat 187px 3px;
+}
+
+.content-header h3.v-cookienotice-header {
+    background: url(../images/icon.png) no-repeat;
+    padding-left: 31px;
+}
+
+.section-config .config .comment .v-cookienotice-notice {
+    border: 1px solid #d6d6d6;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #fafafa;
+}
+
+.section-config .config .comment .v-cookienotice-notice .advice {
+    color: #6f8992;
+}
+
+.section-config .config .comment .v-cookienotice-notice a {
+    color: #ea7601;
+}

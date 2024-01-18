@@ -1,5 +1,5 @@
 {
-    "name": "mageinic/module-cookienotification",
+    "name": "mageinic/cookie-notification",
     "description": "Cookie Notification by MageINIC.Cookie Notification extension is a vital tool for websites utilizing cookies to collect user data. It ensures compliance with privacy regulations while transparently informing users about cookie usage. Customize consent messages, button text, and popup appearance, all while offering flexible event options and auto-hide functionality for experience.",
     "require": {
         "php": "^8.0",

@@ -25,11 +25,11 @@
 
 namespace MageINIC\CookieNotification\Block;
 
+use MageINIC\CookieNotification\Model\System\Config\Source\Bar\BarPosition;
+use MageINIC\CookieNotification\Helper\Data;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
-use MageINIC\CookieNotification\Helper\Data;
-use MageINIC\CookieNotification\Model\System\Config\Source\Box\Position;
 use Magento\Store\Model\StoreManagerInterface;
 
 /**
@@ -67,54 +67,54 @@ class CookieNotification extends Template implements BlockInterface
     }
 
     /**
+     * Get Urls
+     *
+     * @return mixed
+     * @throws NoSuchEntityException
+     */
+    public function getUrls()
+    {
+        return $this->storeManager->getStore()->getBaseUrl();
+    }
+
+    /**
      * Get Cookie Notification
      *
      * @return mixed
      */
-    public function getCookieNotification(): mixed
+    public function enableDisable()
     {
-        return $this->moduleHelper->getCookieNotification();
+        return $this->moduleHelper->enableDisable();
     }
 
     /**
-     * Get Position
+     * Get Type
      *
      * @return mixed
      */
-    public function getPosition(): mixed
+    public function getType()
     {
-        return $this->moduleHelper->getPosition();
+        return $this->moduleHelper->getType();
     }
 
     /**
-     * Get NoticeTitle
+     * Get Bar Position
      *
      * @return mixed
      */
-    public function getNoticeTitle(): mixed
+    public function getBarPosition()
     {
-        return $this->moduleHelper->getNoticeTitle();
+        return $this->moduleHelper->getBarPosition();
     }
 
     /**
-     * Get NoticeMessage
+     * Get Box Position
      *
      * @return mixed
      */
-    public function getNoticeMessage(): mixed
+    public function getBoxPosition()
     {
-        return $this->moduleHelper->getNoticeMessage();
-    }
-
-    /**
-     * Get CookiePolicyUrl
-     *
-     * @return string
-     * @throws NoSuchEntityException
-     */
-    public function getCookiePolicyUrl(): string
-    {
-        return $this->storeManager->getStore()->getBaseUrl() .$this->moduleHelper->getCookiePolicyUrl();
+        return $this->moduleHelper->getBoxPosition();
     }
 
     /**
@@ -122,19 +122,319 @@ class CookieNotification extends Template implements BlockInterface
      *
      * @return mixed
      */
-    public function getBehaviour(): mixed
+    public function getBehaviour()
     {
         return $this->moduleHelper->getBehaviour();
     }
 
     /**
-     * Get ExpireCookieDay
+     * Get Auto hide
      *
      * @return mixed
      */
-    public function getExpireCookieDay(): mixed
+    public function getAutohide()
     {
-        return $this->moduleHelper->getExpireCookieDay();
+        return $this->moduleHelper->getAutohide();
+    }
+
+    /**
+     * Get Auto Accept
+     *
+     * @return mixed
+     */
+    public function getAutoAccept()
+    {
+        return $this->moduleHelper->getAutoAccept();
+    }
+
+    /**
+     * Get Auto Expire
+     *
+     * @return mixed
+     */
+    public function getAutoExpire()
+    {
+        return $this->moduleHelper->getAutoExpire();
+    }
+
+    /**
+     * Get Show
+     *
+     * @return mixed
+     */
+    public function getShow()
+    {
+        return $this->moduleHelper->getShow();
+    }
+
+    /**
+     * Get Custom Message
+     *
+     * @return mixed
+     */
+    public function getCustomMessage()
+    {
+        return $this->moduleHelper->getCustomMessage();
+    }
+
+    /**
+     * Get Custom More Info
+     *
+     * @return mixed
+     */
+    public function getCustomMoreInfo()
+    {
+        return $this->moduleHelper->getCustomMoreInfo();
+    }
+
+    /**
+     * Cms Page
+     *
+     * @return mixed
+     */
+    public function cmsPage()
+    {
+        return $this->moduleHelper->cmsPage();
+    }
+
+    /**
+     * Get Custom Accept
+     *
+     * @return mixed
+     */
+    public function getCustomAccept()
+    {
+        return $this->moduleHelper->getCustomAccept();
+    }
+
+    /**
+     * Get Custom Decline
+     *
+     * @return mixed
+     */
+    public function getCustomDecline()
+    {
+        return $this->moduleHelper->getCustomDecline();
+    }
+
+    /**
+     * Accept Button Background Color
+     *
+     * @return mixed
+     */
+    public function acceptButtonBackgroundColor()
+    {
+        return $this->moduleHelper->acceptButtonBackgroundColor();
+    }
+
+    /**
+     * Accept Button Color
+     *
+     * @return mixed
+     */
+    public function acceptButtonColor()
+    {
+        return $this->moduleHelper->acceptButtonColor();
+    }
+
+    /**
+     * Privacy Policy Color
+     *
+     * @return mixed
+     */
+    public function privacyPolicyColor()
+    {
+        return $this->moduleHelper->privacyPolicyColor();
+    }
+
+    /**
+     * Close Button Background Color
+     *
+     * @return mixed
+     */
+    public function closeButtonBackgroundColor()
+    {
+        return $this->moduleHelper->closeButtonBackgroundColor();
+    }
+
+    /**
+     * On Scroll
+     *
+     * @return mixed
+     */
+    public function onscroll()
+    {
+        return $this->moduleHelper->onscroll();
+    }
+
+    /**
+     * New Tab
+     *
+     * @return mixed
+     */
+    public function newTab()
+    {
+        return $this->moduleHelper->newTab();
+    }
+
+    /**
+     * Close Button Color
+     *
+     * @return mixed
+     */
+    public function closeButtonColor()
+    {
+        return $this->moduleHelper->closeButtonColor();
+    }
+
+    /**
+     * Header Background Color
+     *
+     * @return mixed
+     */
+    public function headerBackgroundColor()
+    {
+        return $this->moduleHelper->headerBackgroundColor();
+    }
+
+    /**
+     * Header Font Color
+     *
+     * @return mixed
+     */
+    public function headerFontColor()
+    {
+        return $this->moduleHelper->headerFontColor();
+    }
+
+    /**
+     * Model Border
+     *
+     * @return mixed
+     */
+    public function modelBorder()
+    {
+        return $this->moduleHelper->modelBorder();
+    }
+
+    /**
+     * Model Border Color
+     *
+     * @return mixed
+     */
+    public function modelBorderColor()
+    {
+        return $this->moduleHelper->modelBorderColor();
+    }
+
+    /**
+     * Header Bottom Border
+     *
+     * @return mixed
+     */
+    public function headerBottomBorder()
+    {
+        return $this->moduleHelper->headerBottomBorder();
+    }
+
+    /**
+     * Header Bottom Border Color
+     *
+     * @return mixed
+     */
+    public function headerBottomBorderColor()
+    {
+        return $this->moduleHelper->headerBottomBorderColor();
+    }
+
+    /**
+     * Container Top Border
+     *
+     * @return mixed
+     */
+    public function containerTopBorder()
+    {
+        return $this->moduleHelper->containerTopBorder();
+    }
+
+    /**
+     * Policy Background Color
+     *
+     * @return mixed
+     */
+    public function policyBackgroundColor()
+    {
+        return $this->moduleHelper->policyBackgroundColor();
+    }
+
+    /**
+     * Container Top Border Color
+     *
+     * @return mixed
+     */
+    public function containerTopBorderColor()
+    {
+        return $this->moduleHelper->containerTopBorderColor();
+    }
+
+    /**
+     * Header Text Font Family
+     *
+     * @return mixed
+     */
+    public function headerTextFontFamily()
+    {
+        return $this->moduleHelper->headerTextFontFamily();
+    }
+
+    /**
+     * Model Title
+     *
+     * @return mixed
+     */
+    public function modelTitle()
+    {
+        return $this->moduleHelper->modelTitle();
+    }
+
+    /**
+     * Model Title Color
+     *
+     * @return mixed
+     */
+    public function modelTitleColor()
+    {
+        return $this->moduleHelper->modelTitleColor();
+    }
+
+    /**
+     * Model Title Font Size
+     *
+     * @return mixed
+     */
+    public function modelTitleFontSize()
+    {
+        return $this->moduleHelper->modelTitleFontSize();
+    }
+
+    /**
+     * Model Message Size
+     *
+     * @return mixed
+     */
+    public function modelMessageSize()
+    {
+        return $this->moduleHelper->modelMessageSize();
+    }
+
+    /**
+     * Model Text Align
+     *
+     * @return mixed
+     */
+    public function modelTextAlign()
+    {
+        return $this->moduleHelper->modelTextAlign();
     }
 
     /**
@@ -144,11 +444,11 @@ class CookieNotification extends Template implements BlockInterface
      */
     public function toHtml(): string
     {
-        if (!$this->moduleHelper->getCookieNotification() ||
+        if (!$this->moduleHelper->enableDisable() ||
             ($this->getNameInLayout() == 'mageinic_cookienotification_top'
-                && $this->moduleHelper->getPosition() != Position::TOP)
+                && $this->moduleHelper->getBarPosition() != BarPosition::TOP)
             || ($this->getNameInLayout() == 'mageinic_Cookienotification_bottom'
-                && $this->moduleHelper->getPosition() != Position::BOTTOM)
+                && $this->moduleHelper->getBarPosition() != BarPosition::BOTTOM)
         ) {
             return '';
         }

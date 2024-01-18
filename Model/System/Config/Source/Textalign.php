@@ -28,9 +28,9 @@ namespace MageINIC\CookieNotification\Model\System\Config\Source;
 use Magento\Framework\Option\ArrayInterface;
 
 /**
- * Cookie Notification Class Behaviour
+ * Cookie Notification Class Textalign
  */
-class Behaviour implements ArrayInterface
+class Textalign implements ArrayInterface
 {
     /**
      * To Option Array
@@ -40,9 +40,9 @@ class Behaviour implements ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 365, 'label' => 'Never show again'],
-            ['value' => 1, 'label' => 'Hide for the rest of the day'],
-            ['value' => 0, 'label' => 'Hide for the rest of the session']
+            ['value' => 'left', 'label' => __('Left')],
+            ['value' => 'center', 'label' => __('Center')],
+            ['value' => 'right', 'label' => __('Right')]
         ];
     }
 }

@@ -39,9 +39,10 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="MageINIC_Core::core_config" title="MageINIC Extensions Section">
+                            <resource id="MageINIC_Core::core_config" title="MageINIC Extensions Section"
+                                      translate="title">
                                 <resource id="MageINIC_CookieNotification::mageinic_cookienotification"
-                                          title="Cookie Notice"/>
+                                          title="Cookie Notice" translate="title"/>
                             </resource>
                         </resource>
                     </resource>

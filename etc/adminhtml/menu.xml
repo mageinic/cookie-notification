@@ -33,6 +33,6 @@
         <add id="MageINIC_CookieNotification::configuration" translate="title" module="MageINIC_CookieNotification"
              sortOrder="40" title="Configuration" parent="MageINIC_CookieNotification::cookienotification"
              resource="MageINIC_CookieNotification::mageinic_cookienotification"
-             action="adminhtml/system_config/edit/section/mageinic_cookienotification"/>
+             action="adminhtml/system_config/edit/section/cookienotification"/>
     </menu>
 </config>

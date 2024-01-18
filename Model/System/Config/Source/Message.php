@@ -22,27 +22,26 @@
  * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
  * @author MageINIC <support@mageinic.com>
  */
+
 namespace MageINIC\CookieNotification\Model\System\Config\Source;
 
-use Magento\Cms\Model\Config\Source\Page as SourcePage;
+use Magento\Framework\Option\ArrayInterface;
 
 /**
- * MageINIC_CookieNotification Class Page
+ * Cookie Notification Class Message
  */
-class Page extends SourcePage
+class Message implements ArrayInterface
 {
     /**
-     * To OptionArray
+     * To Option Array
      *
      * @return array
      */
-    public function toOptionArray(): array
+    public function toOptionArray()
     {
-        if (!$this->options) {
-            $emptyOption[] = ['value' => '', 'label' => 'Select Any One'];
-            $this->options = $this->collectionFactory->create()->toOptionIdArray();
-            $this->options = array_merge($emptyOption, $this->options);
-        }
-        return $this->options;
+        return [
+            ['value' => 'default', 'label' => __('Default message')],
+            ['value' => 'custom', 'label' => __('Custom message')]
+        ];
     }
 }

@@ -28,9 +28,9 @@ namespace MageINIC\CookieNotification\Model\System\Config\Source;
 use Magento\Framework\Option\ArrayInterface;
 
 /**
- * Cookie Notification Class Behaviour
+ * Cookie Notification Class Fontfamily
  */
-class Behaviour implements ArrayInterface
+class Fontfamily implements ArrayInterface
 {
     /**
      * To Option Array
@@ -40,9 +40,14 @@ class Behaviour implements ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 365, 'label' => 'Never show again'],
-            ['value' => 1, 'label' => 'Hide for the rest of the day'],
-            ['value' => 0, 'label' => 'Hide for the rest of the session']
+            ['value' => 'unset', 'label' => __('Auto')],
+            ['value' => 'Open Sans', 'label' => __('Open Sans')],
+            ['value' => 'Lato', 'label' => __('Lato')],
+            ['value' => 'Old Standard TT', 'label' => __('Old Standard TT')],
+            ['value' => 'Abril Fatface', 'label' => __('Abril Fatface')],
+            ['value' => 'PT Serif', 'label' => __('PT Serif')],
+            ['value' => 'Ubuntu', 'label' => __('Ubuntu')],
+            ['value' => 'Vollkorn', 'label' => __('Vollkorn')],
         ];
     }
 }
